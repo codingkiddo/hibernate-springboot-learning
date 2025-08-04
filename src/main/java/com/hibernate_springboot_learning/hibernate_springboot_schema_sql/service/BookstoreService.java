@@ -1,4 +1,4 @@
-package com.hibernate_springboot_learning.hibernate_springboot_schema_sql;
+package com.hibernate_springboot_learning.hibernate_springboot_schema_sql.service;
 
 import org.springframework.stereotype.Service;
 

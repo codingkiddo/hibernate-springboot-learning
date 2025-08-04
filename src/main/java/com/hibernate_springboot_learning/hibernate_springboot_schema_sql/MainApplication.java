@@ -5,9 +5,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.hibernate_springboot_learning.hibernate_springboot_schema_sql.service.BookstoreService;
+
 @SpringBootApplication
 public class MainApplication {
 
+	private final BookstoreService bookstoreService;
+
+    public MainApplication(BookstoreService bookstoreService) {
+        this.bookstoreService = bookstoreService;
+    }
+    
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class, args);
     }
@@ -15,7 +23,8 @@ public class MainApplication {
     @Bean
     public ApplicationRunner init() {
         return args -> {
-        	System.out.println(args);
+        	System.out.println("init() -> args " + args);
+        	bookstoreService.persistAuthor();
         };
     }
 }
